@@ -21,8 +21,19 @@
     font-size: 30px;
 
 }
-
+.card-title-average {
+    text-align: center;
+    background-color: rgb(131, 236, 228);
+    font-size: 40px;
+  }
+.card-text-promedio{
+    text-align: center;
+    color: #ff0000;
+    font-size: 40px;
+}
 footer{
     text-align: center;
     color: rgb(255, 255, 255);
 }
+
+

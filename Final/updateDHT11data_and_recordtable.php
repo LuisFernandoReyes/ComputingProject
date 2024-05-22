@@ -13,7 +13,7 @@
     //........................................
     
     //........................................ Get the time and date.
-    date_default_timezone_set("Asia/Jakarta"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
+    date_default_timezone_set("America/Mexico_City"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
     $tm = date("H:i:s");
     $dt = date("Y-m-d");
     //........................................
