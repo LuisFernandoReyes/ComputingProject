@@ -1,0 +1,28 @@
+.cards .row {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.Titulote {
+    background-color: #ff0000;
+    padding: 20px 0;
+    text-align: center; 
+    color: white;
+    font-size: 40px;
+}
+.card-body {
+    text-align: center;
+    background-color: rgb(131, 236, 228);
+  }
+.card-title{
+    font-size: 30px;
+}
+.infoSensor{
+    font-size: 30px;
+
+}
+
+footer{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
