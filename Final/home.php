@@ -11,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body style="background-color: #5a57ff;">
+<body id="body" style="background-color: #5a57ff;">
   <header>
     <nav class="Titulote">
       <span class="navbar-brand">RECSASI</span>
@@ -49,9 +49,7 @@
       <div class="col-md-7">
         <div class="table-responsive">
           <div id="dataTable">
-            <?php
-            include './table.php';
-            ?>
+            <?php include './table.php'; ?>
           </div>
         </div>
       </div>
@@ -59,7 +57,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title-average">Average of Temperature</h5>
-            <p class="card-text-promedio">Aquí van los datos adicionales...</p>
+            <p class="card-text-promedio"> <span id="averageTemp"></span> </p>
           </div>
         </div>
       </div>
@@ -110,10 +108,22 @@
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           document.getElementById("dataTable").innerHTML = this.responseText;
+          const average = parseFloat(document.getElementById("dataTable").querySelector("#average").innerText);
+          document.getElementById("averageTemp").innerText = average;
+          updateBackgroundColorAndAlert(average);
         }
       };
       xmlhttp.open("GET", "table.php", true);
       xmlhttp.send();
+    }
+
+    function updateBackgroundColorAndAlert(average) {
+      if (average > 27 && average < 28) {
+        document.getElementById('body').style.backgroundColor = 'red';
+        alert('Be careful with temperature');
+      } else {
+        document.getElementById('body').style.backgroundColor = '#5a57ff';
+      }
     }
   </script>
 </body>
