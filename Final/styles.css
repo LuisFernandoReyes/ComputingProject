@@ -4,27 +4,38 @@
     margin-top: 40px;
 }
 .Titulote {
-    background-color: #ff0000;
+    background-color: #0400ff;
     padding: 20px 0;
     text-align: center; 
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 40px;
+    font-family: fantasy;
 }
 .card-body {
     text-align: center;
-    background-color: rgb(131, 236, 228);
   }
 .card-title{
     font-size: 30px;
+    font-family: fantasy;
+    color: #ff0000;
+    
 }
 .infoSensor{
     font-size: 30px;
+    font-family: fantasy;
 
 }
-.card-title-average {
+.infoSensor-avg{
+    font-size: 30px;
+    font-family: fantasy;
+    color: #ff0000;
+
+}
+.card-title-avg {
     text-align: center;
-    background-color: rgb(131, 236, 228);
-    font-size: 40px;
+    font-size: 30px;
+    font-family: fantasy;
+    color: #ff0000;
   }
 .card-text-promedio{
     text-align: center;
@@ -35,5 +46,3 @@ footer{
     text-align: center;
     color: rgb(255, 255, 255);
 }
-
-

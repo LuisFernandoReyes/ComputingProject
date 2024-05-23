@@ -11,13 +11,14 @@ if (mysqli_num_rows($result) > 0) {
     $count = 0;
 
     // Mostrar la tabla HTML
-    echo "<table class='table table-primary'>
+    echo "<table class='table table-primary' style='border: 1px solid black;'>
             <thead>
               <tr>
-                <th scope='col'>Temperature</th>
-                <th scope='col'>Humidity</th>
-                <th scope='col'>Time</th>
-                <th scope='col'>Date</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>ID</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Temperature</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Humidity</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Time</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Date</th>
               </tr>
             </thead>
             <tbody>";
@@ -28,10 +29,11 @@ if (mysqli_num_rows($result) > 0) {
         $count++;
 
         echo "<tr>";
-        echo "<td>" . $row['temperature'] . "</td>";
-        echo "<td>" . $row['humidity'] . "</td>";
-        echo "<td>" . $row['time'] . "</td>";
-        echo "<td>" . $row['date'] . "</td>";
+        echo "<td style='text-align: center;'>" . $row['id'] . "</td>";
+        echo "<td style='text-align: center;'>" . $row['temperature'] . "</td>";
+        echo "<td style ='text-align: center;'>" . $row['humidity'] . "</td>";
+        echo "<td style ='text-align: center;'>" . $row['time'] . "</td>";
+        echo "<td style ='text-align: center;'>" . $row['date'] . "</td>";
         echo "</tr>";
     }
     echo "</tbody></table>";

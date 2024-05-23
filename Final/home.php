@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>RECSASI INFO</title>
+  <title>Final Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="icon" href="data:,">
@@ -11,29 +11,37 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body id="body" style="background-color: #5a57ff;">
+<body id="body" style="background-color: #b0e0e6;">
   <header>
     <nav class="Titulote">
-      <span class="navbar-brand">RECSASI</span>
+      <span class="navbar-brand">ALQUILADORA SALADINO</span>
     </nav>
   </header>
 
   <main>
     <div class="cards">
       <div class="row">
-        <div class="col-4">
-          <div class="card">
+        <div class="col-3">
+          <div class="card" style="border: 1px solid black; border-radius: 25px;">
             <div class="card-body">
               <h3 class="card-title">Temperature</h3>
               <p class="infoSensor"><span class="reading"><span id="ESP32_01_Temp"></span> &deg;C</span></p>
             </div>
           </div>
         </div>
-        <div class="col-4">
-          <div class="card">
+        <div class="col-3">
+          <div class="card" style="border: 1px solid black; border-radius: 25px;">
             <div class="card-body">
               <h3 class="card-title">Humidity</h3>
               <p class="infoSensor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="border: 1px solid black; border-radius: 25px;">
+            <div class="card-body">
+              <h3 class="card-title-avg">Average</h3>
+              <p class="infoSensor-avg"> <span id="averageTemp"></span> </p>
             </div>
           </div>
         </div>
@@ -41,23 +49,15 @@
     </div>
   </main>
   <footer>
-    <p><span>Status Read Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
+    <p style="color: #b0e0e6;"><span>Status Read Sensor DHT11 : </span><span id="ESP32_01_Status_Read_DHT11"></span></p>
   </footer>
 
   <div class="container-fluid table-container">
     <div class="row">
-      <div class="col-md-7">
-        <div class="table-responsive">
+      <div class="col-md-12">
+        <div class="table table-bordered" >
           <div id="dataTable">
             <?php include './table.php'; ?>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title-average">Average of Temperature</h5>
-            <p class="card-text-promedio"> <span id="averageTemp"></span> </p>
           </div>
         </div>
       </div>
@@ -110,19 +110,16 @@
           document.getElementById("dataTable").innerHTML = this.responseText;
           const average = parseFloat(document.getElementById("dataTable").querySelector("#average").innerText);
           document.getElementById("averageTemp").innerText = average;
-          updateBackgroundColorAndAlert(average);
+          showAlertIfNeeded(average);
         }
       };
       xmlhttp.open("GET", "table.php", true);
       xmlhttp.send();
     }
 
-    function updateBackgroundColorAndAlert(average) {
-      if (average > 27 && average < 28) {
-        document.getElementById('body').style.backgroundColor = 'red';
+    function showAlertIfNeeded(average) {
+      if (average > 28 && average < 30) {
         alert('Be careful with temperature');
-      } else {
-        document.getElementById('body').style.backgroundColor = '#5a57ff';
       }
     }
   </script>
