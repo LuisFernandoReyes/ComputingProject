@@ -11,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body id="body" style="background-color: #5a57ff;">
+<body id="body" style="background-color: red;">
   <header>
     <nav class="Titulote">
       <span class="navbar-brand">RECSASI</span>
@@ -25,7 +25,7 @@
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">Temperature</h3>
-              <p class="infoSensor"><span class="reading"><span id="ESP32_01_Temp"></span> &deg;C</span></p>
+              <p class="infoSensor"><span class="reading">33</span> &deg;C</span></p>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">Humidity</h3>
-              <p class="infoSensor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
+              <p class="infoSensor"><span class="reading">28</span> &percnt;</span></p>
             </div>
           </div>
         </div>
@@ -49,7 +49,54 @@
       <div class="col-md-7">
         <div class="table-responsive">
           <div id="dataTable">
-            <?php include './table.php'; ?>
+            <table class='table table-primary'>
+              <thead>
+                <tr>
+                  <th scope='col'>Temperature</th>
+                  <th scope='col'>Humidity</th>
+                  <th scope='col'>Time</th>
+                  <th scope='col'>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>33</td>
+                  <td>28</td>
+                  <td>11:17:15</td>
+                  <td>2024-05-31</td>
+                </tr>
+                <tr>
+                  <td>33</td>
+                  <td>28</td>
+                  <td>11:17:00</td>
+                  <td>2024-05-31</td>
+                </tr>
+                <tr>
+                  <td>33</td>
+                  <td>28</td>
+                  <td>11:16:45</td>
+                  <td>2024-05-31</td>
+                </tr>
+                <tr>
+                  <td>32</td>
+                  <td>28</td>
+                  <td>11:16:30</td>
+                  <td>2024-05-31</td>
+                </tr>
+                <tr>
+                  <td>32</td>
+                  <td>28</td>
+                  <td>11:16:15</td>
+                  <td>2024-05-31</td>
+                </tr>
+                <tr>
+                  <td>32</td>
+                  <td>28</td>
+                  <td>11:16:00</td>
+                  <td>2024-05-31</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -57,74 +104,16 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title-average">Average of Temperature</h5>
-            <p class="card-text-promedio"> <span id="averageTemp"></span> </p>
+            <p class="card-text-promedio">32.5</span></p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <script>
-    document.getElementById("ESP32_01_Temp").innerHTML = "NN";
-    document.getElementById("ESP32_01_Humd").innerHTML = "NN";
-    document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = "NN";
-
-    Get_Data("esp32_01");
-
-    setInterval(myTimer, 5000);
-
-    function myTimer() {
-      Get_Data("esp32_01");
-    }
-
-    function Get_Data(id) {
-      if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-      } else {
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          const myObj = JSON.parse(this.responseText);
-          if (myObj.id == "esp32_01") {
-            document.getElementById("ESP32_01_Temp").innerHTML = myObj.temperature;
-            document.getElementById("ESP32_01_Humd").innerHTML = myObj.humidity;
-            document.getElementById("ESP32_01_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
-            updateTable();
-          }
-        }
-      };
-      xmlhttp.open("POST", "getdata.php", true);
-      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xmlhttp.send("id=" + id);
-    }
-
-    function updateTable() {
-      if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-      } else {
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("dataTable").innerHTML = this.responseText;
-          const average = parseFloat(document.getElementById("dataTable").querySelector("#average").innerText);
-          document.getElementById("averageTemp").innerText = average;
-          updateBackgroundColorAndAlert(average);
-        }
-      };
-      xmlhttp.open("GET", "table.php", true);
-      xmlhttp.send();
-    }
-
-    function updateBackgroundColorAndAlert(average) {
-      if (average > 27 && average < 28) {
-        document.getElementById('body').style.backgroundColor = 'red';
-        alert('Be careful with temperature');
-      } else {
-        document.getElementById('body').style.backgroundColor = '#5a57ff';
-      }
-    }
+    setTimeout(function() {
+      alert('Be careful with temperature');
+    }, 1000);
   </script>
 </body>
 

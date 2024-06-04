@@ -21,8 +21,8 @@ DHT dht11_sensor(DHTPIN, DHTTYPE); //--> Initialize DHT sensor.
 #define LED_02 5
 
 //======================================== SSID and Password of your WiFi router.
-const char* ssid = "HONORX8";
-const char* password = "12345678";
+const char* ssid = "LuisNetwork";
+const char* password = "23456789";
 //======================================== 
 
 //======================================== Variables for HTTP POST request data.
@@ -203,7 +203,7 @@ void loop() {
     // REPLACE_WITH_YOUR_COMPUTER_IP_ADDRESS = there are many ways to see the IP address, you can google it. 
     //                                         But make sure that the IP address used is "IPv4 address".
     // Example : http.begin("http://192.168.0.0/ESP32_MySQL_Database/Final/getdata.php");
-    http.begin("http://192.168.155.251/ComputingProject/Final/getdata.php");  //--> Specify request destination
+    http.begin("http://172.17.120.53/ComputingProject/Final/getdata.php");  //--> Specify request destination
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");        //--> Specify content-type header
    
     httpCode = http.POST(postData); //--> Send the request
@@ -248,7 +248,7 @@ void loop() {
     Serial.println();
     Serial.println("---------------updateDHT11data_and_recordtable.php");
     // Example : http.begin("http://192.168.0.0/ESP32_MySQL_Database/Final/updateDHT11data_and_recordtable.php");
-    http.begin("http://192.168.155.251/ComputingProject/Final/updateDHT11data_and_recordtable.php");  //--> Specify request destination
+    http.begin("http://172.17.120.53/ComputingProject/Final/updateDHT11data_and_recordtable.php");  //--> Specify request destination
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");  //--> Specify content-type header
    
     httpCode = http.POST(postData); //--> Send the request
