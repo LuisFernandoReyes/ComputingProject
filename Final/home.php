@@ -14,7 +14,7 @@
 <body id="body" style="background-color: #b0e0e6;">
   <header>
     <nav class="Titulote">
-      <span class="navbar-brand">ALQUILADORA SALADINO</span>
+      <span class="navbar-brand">CARNICERIA AGUSTIN</span>
     </nav>
   </header>
 
@@ -24,7 +24,7 @@
         <div class="col-3">
           <div class="card" style="border: 1px solid black; border-radius: 25px;">
             <div class="card-body">
-              <h3 class="card-title">Temperature</h3>
+              <h3 class="card-title">Temperatura</h3>
               <p class="infoSensor"><span class="reading"><span id="ESP32_01_Temp"></span> &deg;C</span></p>
             </div>
           </div>
@@ -32,7 +32,7 @@
         <div class="col-3">
           <div class="card" style="border: 1px solid black; border-radius: 25px;">
             <div class="card-body">
-              <h3 class="card-title">Humidity</h3>
+              <h3 class="card-title">Humedad</h3>
               <p class="infoSensor"><span class="reading"><span id="ESP32_01_Humd"></span> &percnt;</span></p>
             </div>
           </div>
@@ -40,7 +40,7 @@
         <div class="col-3">
           <div class="card" style="border: 1px solid black; border-radius: 25px;">
             <div class="card-body">
-              <h3 class="card-title-avg">Average</h3>
+              <h3 class="card-title-avg">Promedio</h3>
               <p class="infoSensor-avg"> <span id="averageTemp"></span> </p>
             </div>
           </div>

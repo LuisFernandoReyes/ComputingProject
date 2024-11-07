@@ -15,10 +15,10 @@ if (mysqli_num_rows($result) > 0) {
             <thead>
               <tr>
               <th class='bg-info' scope='col' style='color: black; text-align: center;'>ID</th>
-              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Temperature</th>
-              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Humidity</th>
-              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Time</th>
-              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Date</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Temperatura</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Humedad</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Hora</th>
+              <th class='bg-info' scope='col' style='color: black; text-align: center;'>Fecha</th>
               </tr>
             </thead>
             <tbody>";
